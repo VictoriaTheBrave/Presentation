@@ -1,0 +1,289 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <style>
+      h2 {
+        width: 100% !important;
+        text-align: center !important;
+        font-size: 1.4em !important;
+      }
+      table {
+        width: 90% !important;
+      }
+      tbody {
+        font-size: 2rem !important;
+      }
+      td {
+        padding: 10px !important;
+        vertical-align: top !important;
+      }
+      img {
+        margin-bottom: 1rem !important;
+      }
+    </style>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+          <h1>Inheritance in JavaScript</h1>
+          <p>by Victoria Likhuta</p>
+        </section>
+        <section>
+          <section>
+            <h2>Types of inheritance</h2>
+            <p>Class-based programming (classical inheritance)</p>
+            <ul>
+              <li>Java</li>
+              <li>C++</li>
+            </ul>
+            <p>Prototype-based programming (prototypal inheritance)</p>
+            <ul>
+              <li>JavaScript</li>
+              <li>Maple</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Prototype chains</h2>
+            <img src="./img/array-chain.JPG" alt="Array Prototype chain">
+            <img src="./img/rabbit-chain.JPG" alt="Rabbit Prototype chain">
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>Inheritance by using __proto__</h2>
+            <img src="./img/__proto__1.JPG" alt="Example of using __proto__">
+            <img src="./img/__proto__2.JPG" alt="Example of using __proto__">
+          </section>
+          <section>
+            <h2>Pros and cons of using __proto__</h2>
+            <table>
+              <thead>
+                <tr>
+                  <td>Pro</td>
+                  <td>Con</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <ul>
+                      <li>Setting __proto__ to not-object doesn't throw exception</li>
+                      <li>Good browsers support (all non-microsoft browsers and IE11+)</li>
+                    </ul>
+                  </td>
+                  <td>
+                    <ul>
+                      <li>Low performance</li>
+                      <li>IE11 and below</li>
+                    </ul>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>Inheritance by using Object.setPrototypeOf()</h2>
+            <img src="./img/setPrototypeOf.JPG" alt="Example of using Object.setPrototypeOf">
+          </section>
+          <section>
+            <h2>Pros and cons of using Object.setPrototypeOf()</h2>
+            <table>
+              <thead>
+                <tr>
+                  <td>Pro</td>
+                  <td>Con</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <ul>
+                      <li>Allowance of the dynamic manipulation of an objects prototype</li>
+                      <li>Possibility to force a prototype on a prototype-less object</li>
+                      <li>Good browsers support (all non-microsoft browsers and IE10+)</li>
+                    </ul>
+                  </td>
+                  <td>
+                    <ul>
+                      <li>Low performance</li>
+                      <li>IE9 and below</li>
+                    </ul>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2 style="font-size: 1.2em !important;">Inheritance by using prototype property and constructor function</h2>
+            <img src="./img/prototype-property.JPG" alt="Example of using prototype property and constructor function">
+          </section>
+          <section>
+            <h2>Pros and cons of using prototype property and constructor function</h2>
+            <table>
+              <thead>
+                <tr>
+                  <td>Pro</td>
+                  <td>Con</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <ul>
+                      <li>Good perfomance</li>
+                      <li>Direct setting of __proto__ in an one-time-only way so browser can better optimize the object</li>
+                      <li>Possibility to create objects without prototype</li>
+                      <li>Good browsers support (all non-microsoft browsers plus IE9 and up)</li>
+                    </ul>
+                  </td>
+                  <td>
+                    <ul>
+                      <li>If code is not yours, it could lead to posiible problems</li>
+                      <li>IE5.4 and below</li>
+                    </ul>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>Inheritance by using Object.create()</h2>
+            <img src="./img/object-create.JPG" alt="Example of using Object.create">
+          </section>
+          <section>
+            <h2>Pros and cons of using Object.create()</h2>
+            <table>
+              <thead>
+                <tr>
+                  <td>Pro</td>
+                  <td>Con</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <ul>
+                      <li>Good perfomance</li>
+                      <li>Fast, standard and optimizable</li>
+                      <li>If it's all your code, you'll benefit</li>
+                      <li>Almost full support (only IE5.5 and below amiss)</li>
+                    </ul>
+                  </td>
+                  <td>
+                    <ul>
+                      <li>Lower perfomance with increasing of arguments (descriptors)</li>
+                      <li>IE8 and below</li>
+                    </ul>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+          <section>
+            <h2>Cloning with Object.create()</h2>
+            <img src="./img/clone.JPG" alt="Cloning object with property descriptors">
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>Overriding parent methods</h2>
+            <img src="./img/override-prototype1.JPG" alt="Example of overriding parent method">
+            <img src="./img/override-prototype2.JPG" alt="Example of overriding parent method">
+          </section>
+          <section>
+            <h2>Changing parent methods</h2>
+            <img src="./img/override-prototype1.JPG" alt="Example of overriding parent method">
+            <img src="./img/override-prototype2.JPG" alt="Example of overriding parent method">
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>Inheritance by using Class-notation</h2>
+            <img src="./img/classes.JPG" alt="Example of using classes">
+          </section>
+          <section>
+            <h2>Overriding and changing methods with Class-notation</h2>
+            <img src="./img/override-class.JPG" alt="Example of overriding methods with classes">
+            <img src="./img/change-class.JPG" alt="Example of changing methods with classes">
+          </section>
+          <section>
+            <h2>Pros and cons of using classes</h2>
+            <table>
+              <thead>
+                <tr>
+                  <td>Pro</td>
+                  <td>Con</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <ul>
+                      <li>Good perfomance</li>
+                      <li>Convenient syntax</li>
+                      <li>Easy readable for other developers</li>
+                      <li>Support of all browsers excluding IE</li>
+                    </ul>
+                  </td>
+                  <td>
+                    <ul>
+                      <li>Possible misunderstanding because of likeness to classical inheritance</li>
+                      <li>IE not supported</li>
+                    </ul>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+        </section>
+        <section>
+          <p>Thank you!</p>
+        </section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
