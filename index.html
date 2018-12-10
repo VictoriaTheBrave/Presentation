@@ -54,6 +54,9 @@
 				<section>
           <h1>Inheritance in JavaScript</h1>
           <p>by Victoria Likhuta</p>
+          <aside class="notes">
+            Let’s talk about inheritance in JavaScript. 
+          </aside>
         </section>
         <section>
           <section>
@@ -70,11 +73,23 @@
                 <li>Maple</li>
               </ul>
             </div>
+            <aside class="notes">
+              different from other object-oriented languages; <br>
+              doesn’t have classes, instead prototypal inheritance; <br>
+              The “class” keyword introduced in ES6; <br>
+              JavaScript remains prototype-based
+            </aside>
           </section>
           <section>
             <h2>Prototype chains</h2>
             <img src="./img/arraychain.jpg" alt="Array Prototype chain">
             <img src="./img/rabbitchain.jpg" alt="Rabbit Prototype chain">
+            <aside class="notes">
+              JavaScript has only one construct: object.<br>
+              prototype - private property holds link to another object;<br>
+              read missing property, JavaScript automatically takes from prototype; <br>
+              until property with matching name found or end prototype chain reached
+            </aside>
           </section>
           <section>
             <h2>Inheritance implementation approaches</h2>
@@ -84,66 +99,130 @@
               <img src="./img/functionalinherit.jpg" alt="Functional inheritance">
               <img src="./img/prototypalinheritance.jpg" alt="Prototypal inheritance">
             </div>
+            <aside class="notes">
+              There are two main approaches in inheritance implementation: functional and prototypal.
+            </aside>
           </section>
         </section>
         <section>
           <section>
             <h2>Functional inheritance</h2>
             <img src="./img/functionalinherit.jpg" alt="Functional inheritance" style="width: 550px;">
+            <aside class="notes">
+              Inheritance implemented with Animal.apply(this, arguments);<br>
+              properties, methods of Animal to Dog, binding Dog as this context;<br>
+              goes on, can add other methods, properties;<br>
+              pluto, it has properties, methods of Animal and Dog<br>
+              To make the parent properties accessible for child, describe with this
+            </aside>
           </section>
           <section>
             <h2>Functional inheritance</h2>
             <h3>Overriding parent methods</h3>
             <img src="./img/functionaloverride.jpg" alt="Functional overriding" style="width: 550px;">
+            <aside class="notes">
+              method realization in child has special aspects;<br>
+              override the parent method and declare its own in child;
+            </aside>
           </section>
           <section>
             <h2>Functional inheritance</h2>
             <h3>Changing parent methods</h3>
             <img src="./img/functionalchange.jpg" alt="Functional Changing" style="width: 550px;">
+            <aside class="notes">
+              extend parent method;<br>
+              copy parent method into variable, then replace this.wake with our own function;<br>
+              implements parent wake trough parentWake variable, add child own specials;
+            </aside>
           </section>
         </section>
         <section>
           <section>
             <h2>Prototypal inheritance</h2>
             <img src="./img/prototypalinheritance.jpg" alt="Prototypal inheritance" style="width: 550px;">
+            <aside class="notes">
+              declare constructor function, write into prototype all properties, methods we need in child;<br>
+              most popular way to implement inheritance in prototype style;<br>
+              very fast, standard and optimizable;
+            </aside>
           </section>
           <section>
             <h2>Prototypal inheritance</h2>
             <h3>Inheritance by using __proto__</h3>
             <img src="./img/proto1.jpg" alt="Example of using __proto__">
             <img src="./img/proto2.jpg" alt="Example of using __proto__">
+            <aside class="notes">
+              implement inheritance trough using __proto__;<br>
+              __proto__ is a reference to parent prototype;<br>
+              directly assign animal prototype to dog.__proto__;<br>
+              animal methods, properties accessible for dog;<br>
+              __proto__ not recommended
+            </aside>
           </section>
           <section>
             <h2>Prototypal inheritance</h2>
             <h3 style="margin-top: -3%;">Inheritance by using Object.setPrototypeOf()</h3>
             <img src="./img/setprototype.jpg" alt="Example of using Object.setPrototypeOf" style="width: 450px; margin-top: -2%;">
+            <aside class="notes">
+              animal prototype aqual to dog;<br>
+              allowance of the dynamic manipulation of an objects prototype;<br>
+              possibility to force a prototype on a prototype-less object;<br>
+              deprecated;
+            </aside>
           </section>
           <section>
             <h2>Prototypal inheritance</h2>
-            <h3 style="margin-top: -3%; font-size: 1.2em;">Inheritance by using prototype property and constructor function</h2>
+            <h3 style="margin-top: -3%; font-size: 1.125em;">Inheritance by using prototype property and constructor function</h2>
             <img src="./img/prototypeproperty.jpg" alt="Example of using prototype property and constructor function"  style="width: 550px; margin-top: -2%;">
+            <aside class="notes">
+              Dog.prototype here means regular property named "prototype";<br>
+              Dog.prototype=animal states: "When a new Dog is created, assign its __proto__ to animal";<br>
+              pluto.__proto__ to be equal “animal”;<br>
+              Dog has in his __proto__ only standard Object.
+            </aside>
           </section>
           <section>
             <h2>Prototypal inheritance</h2>
             <h3 style="margin-top: -3%;">Inheritance by using Object.create()</h3>
             <img src="./img/objectcreate.jpg" alt="Example of using Object.create" style="width: 450px; margin-top: -2%;">
+            <aside class="notes">
+              1st argument of Object.create() - existing object as the prototype;<br>
+              creates an instance of animal object;<br>
+              direct setting of __proto__ in one-time-only way;<br>
+              allows creation of objects without prototype via Object.create(null).
+            </aside>
           </section>
           <section>
             <h2>Prototypal inheritance</h2>
             <h3>Overriding parent methods</h3>
             <img src="./img/overrideprototype1.jpg" alt="Example of overriding parent method">
             <img src="./img/overrideprototype2.jpg" alt="Example of overriding parent method">
+            <aside class="notes">
+              1st example defines walk method ONLY for object dog;<br>
+              2nd defines method walk that will be accessible for dog instances;
+            </aside>
           </section>
           <section>
             <h2>Prototypal inheritance</h2>
             <h3>Changing parent methods</h3>
             <img src="./img/changemethod1.jpg" alt="Example of changing parent method" style="width: 550px;">
             <img src="./img/changemethod2.jpg" alt="Example of changing parent method" style="width: 550px;">
+            <aside class="notes">
+              change method only for dog - write without prototype;<br>
+              change method for instances of dog - use prototype;
+            </aside>
           </section>
         </section>
         <section>
           <h2>Inheritance by using Class-notation</h2>
           <img src="./img/class.jpg" alt="Example of using classes">
+          <aside class="notes">
+            Class - syntactical sugar for constructor function;<br>
+            inheritance - key word extends;<br>
+            extend child constructor with changes - super() operator as first in constructor;<br>
+            call parent class constructor, inherit parameters of super();<br>
+            new instances of class - “new” key word
+          </aside>
         </section>
         <section>
           <h2>Pros and cons of functional and prototypal inheritance</h2>
@@ -171,9 +250,18 @@
               </tr>
             </tbody>
           </table>
+          <aside class="notes">
+            functional: possibility to use local variables as private properties; sets to object both properties and methods<br>
+            prototypal: faster and more efficient; prototype methods haven’t access to constructor scope;
+          </aside>
         </section>
         <section>
           <p>Thank you!</p>
+          <aside class="notes">
+            waste of time to use inheritance in small projects;<br>
+            good for big code bases;<br>
+            JavaScript's power and flexibility comes from its object structure and inheritance;<br>
+          </aside>
         </section>
 			</div>
 		</div>
