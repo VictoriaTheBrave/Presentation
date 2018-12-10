@@ -21,10 +21,17 @@
 			document.getElementsByTagName( 'head' )[0].appendChild( link );
     </script>
     <style>
+      h1 {
+        color: #99cc00 !important;
+      }
       h2 {
         width: 100% !important;
         text-align: center !important;
         font-size: 1.4em !important;
+        color: #99cc00 !important;
+      }
+      h3 {
+        color: #2eb82e !important;
       }
       table {
         width: 90% !important;
@@ -50,217 +57,120 @@
         </section>
         <section>
           <section>
-            <h2>Types of inheritance</h2>
-            <p>Class-based programming (classical inheritance)</p>
-            <ul>
-              <li>Java</li>
-              <li>C++</li>
-            </ul>
-            <p>Prototype-based programming (prototypal inheritance)</p>
-            <ul>
-              <li>JavaScript</li>
-              <li>Maple</li>
-            </ul>
+            <h2>Types of inheritance in OOP</h2>
+            <div style="display: grid; grid-template-rows: 70% 30%; grid-template-columns: 1fr 1fr; text-align: left;">
+              <p>Class-based programming (classical inheritance)</p>
+              <p>Prototype-based programming (prototypal inheritance)</p>
+              <ul style="font-style: italic;">
+                <li>Java</li>
+                <li>C++</li>
+              </ul>
+              <ul style="font-style: italic;">
+                <li>JavaScript</li>
+                <li>Maple</li>
+              </ul>
+            </div>
           </section>
           <section>
             <h2>Prototype chains</h2>
             <img src="./img/arraychain.jpg" alt="Array Prototype chain">
             <img src="./img/rabbitchain.jpg" alt="Rabbit Prototype chain">
           </section>
+          <section>
+            <h2>Inheritance implementation approaches</h2>
+            <div style="display: grid; grid-template-rows: 10% 90%; grid-template-columns: 1fr 1fr; margin-top: -4%;">
+              <p>Functional</p>
+              <p>Prototypal</p>
+              <img src="./img/functionalinherit.jpg" alt="Functional inheritance">
+              <img src="./img/prototypalinheritance.jpg" alt="Prototypal inheritance">
+            </div>
+          </section>
         </section>
         <section>
           <section>
-            <h2>Inheritance by using __proto__</h2>
+            <h2>Functional inheritance</h2>
+            <img src="./img/functionalinherit.jpg" alt="Functional inheritance" style="width: 550px;">
+          </section>
+          <section>
+            <h2>Functional inheritance</h2>
+            <h3>Overriding parent methods</h3>
+            <img src="./img/functionaloverride.jpg" alt="Functional overriding" style="width: 550px;">
+          </section>
+          <section>
+            <h2>Functional inheritance</h2>
+            <h3>Changing parent methods</h3>
+            <img src="./img/functionalchange.jpg" alt="Functional Changing" style="width: 550px;">
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>Prototypal inheritance</h2>
+            <img src="./img/prototypalinheritance.jpg" alt="Prototypal inheritance" style="width: 550px;">
+          </section>
+          <section>
+            <h2>Prototypal inheritance</h2>
+            <h3>Inheritance by using __proto__</h3>
             <img src="./img/proto1.jpg" alt="Example of using __proto__">
             <img src="./img/proto2.jpg" alt="Example of using __proto__">
           </section>
           <section>
-            <h2>Pros and cons of using __proto__</h2>
-            <table>
-              <thead>
-                <tr>
-                  <td>Pro</td>
-                  <td>Con</td>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>
-                    <ul>
-                      <li>Setting __proto__ to not-object doesn't throw exception</li>
-                      <li>Good browsers support (all non-microsoft browsers and IE11+)</li>
-                    </ul>
-                  </td>
-                  <td>
-                    <ul>
-                      <li>Low performance</li>
-                      <li>IE11 and below</li>
-                    </ul>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </section>
-        </section>
-        <section>
-          <section>
-            <h2>Inheritance by using Object.setPrototypeOf()</h2>
-            <img src="./img/setprototype.jpg" alt="Example of using Object.setPrototypeOf">
+            <h2>Prototypal inheritance</h2>
+            <h3 style="margin-top: -3%;">Inheritance by using Object.setPrototypeOf()</h3>
+            <img src="./img/setprototype.jpg" alt="Example of using Object.setPrototypeOf" style="width: 450px; margin-top: -2%;">
           </section>
           <section>
-            <h2>Pros and cons of using Object.setPrototypeOf()</h2>
-            <table>
-              <thead>
-                <tr>
-                  <td>Pro</td>
-                  <td>Con</td>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>
-                    <ul>
-                      <li>Allowance of the dynamic manipulation of an objects prototype</li>
-                      <li>Possibility to force a prototype on a prototype-less object</li>
-                      <li>Good browsers support (all non-microsoft browsers and IE10+)</li>
-                    </ul>
-                  </td>
-                  <td>
-                    <ul>
-                      <li>Low performance</li>
-                      <li>IE9 and below</li>
-                    </ul>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </section>
-        </section>
-        <section>
-          <section>
-            <h2 style="font-size: 1.2em !important;">Inheritance by using prototype property and constructor function</h2>
-            <img src="./img/prototypeproperty.jpg" alt="Example of using prototype property and constructor function">
+            <h2>Prototypal inheritance</h2>
+            <h3 style="margin-top: -3%; font-size: 1.2em;">Inheritance by using prototype property and constructor function</h2>
+            <img src="./img/prototypeproperty.jpg" alt="Example of using prototype property and constructor function"  style="width: 550px; margin-top: -2%;">
           </section>
           <section>
-            <h2>Pros and cons of using prototype property and constructor function</h2>
-            <table>
-              <thead>
-                <tr>
-                  <td>Pro</td>
-                  <td>Con</td>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>
-                    <ul>
-                      <li>Good perfomance</li>
-                      <li>Direct setting of __proto__ in an one-time-only way so browser can better optimize the object</li>
-                      <li>Possibility to create objects without prototype</li>
-                      <li>Good browsers support (all non-microsoft browsers plus IE9 and up)</li>
-                    </ul>
-                  </td>
-                  <td>
-                    <ul>
-                      <li>If code is not yours, it could lead to posiible problems</li>
-                      <li>IE5.4 and below</li>
-                    </ul>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </section>
-        </section>
-        <section>
-          <section>
-            <h2>Inheritance by using Object.create()</h2>
-            <img src="./img/objectcreate.jpg" alt="Example of using Object.create">
+            <h2>Prototypal inheritance</h2>
+            <h3 style="margin-top: -3%;">Inheritance by using Object.create()</h3>
+            <img src="./img/objectcreate.jpg" alt="Example of using Object.create" style="width: 450px; margin-top: -2%;">
           </section>
           <section>
-            <h2>Pros and cons of using Object.create()</h2>
-            <table>
-              <thead>
-                <tr>
-                  <td>Pro</td>
-                  <td>Con</td>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>
-                    <ul>
-                      <li>Good perfomance</li>
-                      <li>Fast, standard and optimizable</li>
-                      <li>If it's all your code, you'll benefit</li>
-                      <li>Almost full support (only IE5.5 and below amiss)</li>
-                    </ul>
-                  </td>
-                  <td>
-                    <ul>
-                      <li>Lower perfomance with increasing of arguments (descriptors)</li>
-                      <li>IE8 and below</li>
-                    </ul>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </section>
-          <section>
-            <h2>Cloning with Object.create()</h2>
-            <img src="./img/classes.jpg" alt="Cloning object with property descriptors">
-          </section>
-        </section>
-        <section>
-          <section>
-            <h2>Overriding parent methods</h2>
+            <h2>Prototypal inheritance</h2>
+            <h3>Overriding parent methods</h3>
             <img src="./img/overrideprototype1.jpg" alt="Example of overriding parent method">
             <img src="./img/overrideprototype2.jpg" alt="Example of overriding parent method">
           </section>
           <section>
-            <h2>Changing parent methods</h2>
-            <img src="./img/changemethod1.jpg" alt="Example of changing parent method">
-            <img src="./img/changemethod2.jpg" alt="Example of changing parent method">
+            <h2>Prototypal inheritance</h2>
+            <h3>Changing parent methods</h3>
+            <img src="./img/changemethod1.jpg" alt="Example of changing parent method" style="width: 550px;">
+            <img src="./img/changemethod2.jpg" alt="Example of changing parent method" style="width: 550px;">
           </section>
         </section>
         <section>
-          <section>
-            <h2>Inheritance by using Class-notation</h2>
-            <img src="./img/classes.jpg" alt="Example of using classes">
-          </section>
-          <section>
-            <h2>Overriding and changing methods with Class-notation</h2>
-            <img src="./img/overrideclass.jpg" alt="Example of overriding methods with classes">
-            <img src="./img/changeclass.jpg" alt="Example of changing methods with classes">
-          </section>
-          <section>
-            <h2>Pros and cons of using classes</h2>
-            <table>
-              <thead>
-                <tr>
-                  <td>Pro</td>
-                  <td>Con</td>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>
-                    <ul>
-                      <li>Good perfomance</li>
-                      <li>Convenient syntax</li>
-                      <li>Easy readable for other developers</li>
-                      <li>Support of all browsers excluding IE</li>
-                    </ul>
-                  </td>
-                  <td>
-                    <ul>
-                      <li>Possible misunderstanding because of likeness to classical inheritance</li>
-                      <li>IE not supported</li>
-                    </ul>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </section>
+          <h2>Inheritance by using Class-notation</h2>
+          <img src="./img/class.jpg" alt="Example of using classes">
+        </section>
+        <section>
+          <h2>Pros and cons of functional and prototypal inheritance</h2>
+          <table style="width: 800px; table-layout: fixed;">
+            <thead>
+              <tr>
+                <td>Functional inheritance</td>
+                <td>Prototypal inheritance</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <ul>
+                    <li>Possibility to use local variables as private properties</li>
+                    <li>Slower and less efficient than Prototypal</li>
+                  </ul>
+                </td>
+                <td>
+                  <ul>
+                    <li>No use of local variables as private properties</li>
+                    <li>Faster and more efficient than Functional</li>
+                  </ul>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </section>
         <section>
           <p>Thank you!</p>
